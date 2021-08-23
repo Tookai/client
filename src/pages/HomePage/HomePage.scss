@@ -14,3 +14,9 @@
     flex: 9;
   }
 }
+
+@media (max-width: 799px) {
+  .left {
+    display: none;
+  }
+}
