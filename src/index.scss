@@ -90,13 +90,16 @@ video {
 }
 
 * {
-  background-color: $dark;
-  color: $light;
-  font-family: "Urbanist", serif;
-
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: $dark;
+  color: $light;
+  font-family: "Urbanist", serif;
+  font-size: 18px;
 }
 
 .h1 {
@@ -105,11 +108,11 @@ video {
 }
 
 .h2 {
-  font-size: 35px;
+  font-size: 30px;
   font-family: "Lato";
 }
 
 .h3 {
-  font-size: 25px;
+  font-size: 24px;
   font-family: "Lato";
 }

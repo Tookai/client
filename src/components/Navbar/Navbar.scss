@@ -1,0 +1,33 @@
+@import "../../../global.scss";
+
+.Navbar {
+  background-color: $primary;
+  height: 80px;
+  padding: 0.5rem 2rem;
+  color: $darker;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    .img {
+      height: 60px;
+      width: auto;
+    }
+  }
+
+  .greeting {
+    display: flex;
+    align-items: center;
+
+    .hello {
+      padding-right: 1rem;
+    }
+  }
+}
