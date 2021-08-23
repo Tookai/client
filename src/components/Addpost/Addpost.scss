@@ -1,0 +1,48 @@
+@import "../../../global.scss";
+
+.Addpost {
+  background-color: $light;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  position: absolute;
+  top: 80vh;
+  right: 5vw;
+  z-index: 100;
+}
+
+.post__modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    background-color: $dark;
+    padding: 1rem;
+    border-radius: 1rem;
+    width: 40vw;
+    @media (max-width: 799px) {
+      width: 80vw;
+    }
+  }
+
+  select,
+  input,
+  textarea {
+    width: 100%;
+    padding: 0.3rem;
+  }
+
+  .buttons {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .item {
+    padding-bottom: 1rem;
+  }
+}
