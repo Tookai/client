@@ -1,0 +1,41 @@
+@import "../../../global.scss";
+
+.Post {
+  background-color: $darkest;
+  max-width: 750px;
+  margin: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+
+  .top {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .infos {
+      font-size: 0.9rem;
+    }
+  }
+
+  .content {
+    padding: 1rem 0;
+
+    .text {
+      padding-bottom: 1rem;
+    }
+
+    .img {
+      border-radius: 1rem;
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .actions {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+  }
+}

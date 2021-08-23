@@ -1,9 +1,16 @@
+import Post from "../Post/Post";
 import "./Feed.scss";
 
 const Feed = () => {
   return (
     <div className="Feed">
-      <p>ici c'est la feed </p>
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
+      <Post />
     </div>
   );
 };
