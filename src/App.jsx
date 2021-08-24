@@ -2,6 +2,7 @@ import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import LoginPage from "./pages/LoginPage/LoginPage";
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         </Route>
 
         <Route exact path="/login">
-          <HomePage />
+          <LoginPage />
         </Route>
       </Switch>
     </Router>
