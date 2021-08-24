@@ -4,6 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
 import Addpost from "../Addpost/Addpost";
 import Topicmodal from "../Topicmodal/Topicmodal";
+import Logout from "../Logout/Logout";
 
 const Navbar = () => {
   return (
@@ -16,6 +17,7 @@ const Navbar = () => {
       </Link>
 
       <Topicmodal />
+      <Logout />
       <Addpost />
 
       <div className="greeting">
