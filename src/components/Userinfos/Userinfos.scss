@@ -44,3 +44,18 @@
     }
   }
 }
+
+@media (max-width: 799px) {
+  .infos {
+    flex-direction: column;
+
+    .profileInfos {
+      flex-direction: column;
+
+      .left,
+      .right {
+        padding-top: 1rem;
+      }
+    }
+  }
+}
