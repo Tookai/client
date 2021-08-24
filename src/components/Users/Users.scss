@@ -12,6 +12,8 @@
 
   div {
     background-color: $light;
+    border: 1px solid $darkest;
+    box-shadow: 0px 0px 10px 7px rgba(255, 255, 255, 0.15);
     border-radius: 9999px;
     display: flex;
     align-items: center;
@@ -23,7 +25,7 @@
     padding-top: 0.3rem;
     text-align: center;
     color: $light;
-    font-family: 'Indie Flower', cursive;
+    font-family: "Indie Flower", cursive;
   }
 }
 

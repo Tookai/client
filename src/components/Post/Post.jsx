@@ -9,7 +9,7 @@ const Post = () => {
       <div className="top">
         <div className="infos">
           <p>
-            Posté par : 
+            Posté par :
             <Link to="/user/1">
               <em> Thibaut Orcel</em>
             </Link>
@@ -29,7 +29,7 @@ const Post = () => {
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam, accusantium quis aspernatur dolores sint tenetur molestias quo.
           Quas quo nihil vel dolor repudiandae quasi voluptates, dolorum facere consequatur dignissimos reiciendis?
         </p>
-        <img src="https://picsum.photos/750/300" alt="random" className="img" />
+        <img src="https://picsum.photos/750/300" alt="random" className="img" loading="lazy" />
       </div>
 
       <hr />
