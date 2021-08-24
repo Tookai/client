@@ -8,6 +8,9 @@
 
   .left {
     flex: 2;
+    @media (max-width: 799px) {
+        display: none;
+    }
   }
 
   .right {
@@ -15,8 +18,4 @@
   }
 }
 
-@media (max-width: 799px) {
-  .left {
-    display: none;
-  }
-}
+

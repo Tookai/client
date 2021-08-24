@@ -29,11 +29,11 @@ const Post = () => {
       <hr />
 
       <div className="actions">
-        <Button variant="contained" color="primary" size="large">
+        <Button variant="contained" color="primary" size="small">
           J'aime !
         </Button>
 
-        <Button variant="contained" color="primary" size="large">
+        <Button variant="contained" color="primary" size="small">
           Commenter
         </Button>
       </div>

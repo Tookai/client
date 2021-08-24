@@ -1,0 +1,30 @@
+@import "../../../global.scss";
+
+.Topicmodal {
+  background-color: $light;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  position: absolute;
+  top: 80vh;
+  left: 5vw;
+  z-index: 100;
+  display: none;
+}
+
+.topic {
+  display: flex;
+  padding-bottom: 1rem;
+
+  h2 {
+    padding-left: 1rem;
+  }
+}
+
+@media (max-width: 799px) {
+  .Topicmodal {
+    display: block;
+  }
+}
