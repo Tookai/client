@@ -1,0 +1,46 @@
+.Userinfos {
+  .cover {
+    max-width: 750px;
+    max-height: 320px;
+    margin-bottom: 1rem;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+    }
+  }
+
+  .infos {
+    display: flex;
+    align-items: center;
+
+    .profilePic {
+      height: 150px;
+      width: 150px;
+      margin-right: 2rem;
+
+      img {
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        border-radius: 1rem;
+      }
+    }
+
+    .profileInfos {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .left,
+    .right {
+      height: 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+}
