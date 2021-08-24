@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Addpost from "../Addpost/Addpost";
 import Topicmodal from "../Topicmodal/Topicmodal";
 import Logout from "../Logout/Logout";
+import Users from "../Users/Users";
 
 const Navbar = () => {
   return (
@@ -18,6 +19,8 @@ const Navbar = () => {
 
       <Topicmodal />
       <Logout />
+
+      <Users />
       <Addpost />
 
       <div className="greeting">

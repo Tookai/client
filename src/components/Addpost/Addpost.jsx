@@ -16,9 +16,13 @@ const Addpost = () => {
   return (
     <>
       <div className="Addpost">
+        <div>
+
         <IconButton color="primary" onClick={handleOpen}>
           <PostAddIcon fontSize="large" />
         </IconButton>
+        </div>
+        <p>poster</p>
       </div>
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

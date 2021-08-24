@@ -14,7 +14,7 @@ const Userinfos = () => {
           <div className="left">
             <p className="item">Prénom : Thibaut</p>
             <p className="item">Nom : Orcel</p>
-            <p className="item">Date de Naissance : 21/04/1996</p>
+            <p className="item">Date de naissance : 21/04/1996</p>
             <p className="item">Métier : Développeur Web</p>
           </div>
           <div className="right">

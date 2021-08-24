@@ -25,13 +25,21 @@ const Topicmodal = () => {
   return (
     <>
       <div className="Topicmodal">
+        <div>
+
         <IconButton color="primary" onClick={handleOpen}>
           <FormatListBulletedIcon fontSize="large" />
         </IconButton>
+        </div>
+        <p>catégories</p>
       </div>
 
-      <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div className="post__modal">
+      <Modal
+        open={open}
+        onClose={handleClose}
+        style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", overflowY: "scroll" }}
+      >
+        <div className="topic__modal">
           <div className="container">
             <div className="topic">
               <AccessibilityIcon fontSize="large" />
@@ -82,9 +90,6 @@ const Topicmodal = () => {
               <h2 className="h2">Can't Class</h2>
             </div>
           </div>
-          <Button onClick={handleClose} variant="contained" color="secondary">
-            Fermer
-          </Button>
         </div>
       </Modal>
     </>

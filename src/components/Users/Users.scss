@@ -1,9 +1,9 @@
 @import "../../../global.scss";
 
-.Topicmodal {
+.Users {
   position: absolute;
   top: 60vh;
-  left: 4vw;
+  right: 4vw;
   z-index: 100;
   display: flex;
   flex-direction: column;
@@ -27,7 +27,7 @@
   }
 }
 
-.topic__modal {
+.users__modal {
   height: 90vh;
   overflow-y: scroll;
   display: flex;
@@ -41,12 +41,12 @@
     padding: 2rem 0;
   }
 
-  .topic {
+  .user {
     display: flex;
-    padding: 1rem 0;
+    align-items: center;
 
-    h2 {
-      padding-left: 1rem;
+    .username {
+      padding: 1rem;
     }
   }
 }

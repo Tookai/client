@@ -23,13 +23,16 @@ const Logout = () => {
   return (
     <>
       <div className="Logout">
-        <IconButton color="default" onClick={handleOpen}>
-          <ExitToAppIcon fontSize="large" />
-        </IconButton>
+        <div>
+          <IconButton color="default" onClick={handleOpen}>
+            <ExitToAppIcon fontSize="large" />
+          </IconButton>
+        </div>
+        <p>déconnecter</p>
       </div>
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div className="post__modal">
+        <div className="logout__modal">
           <Avatar
             alt="user"
             src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
