@@ -1,14 +1,20 @@
 import { Button, IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import "./Post.scss";
+import { Link } from "react-router-dom";
 
 const Post = () => {
   return (
     <div className="Post">
       <div className="top">
         <div className="infos">
-          <p>Posté par : Thibaut Orcel</p>
-          <p>À : 00:08 24/08/2021 </p>
+          <p>
+            Posté par : 
+            <Link to="/user/1">
+              <em> Thibaut Orcel</em>
+            </Link>
+          </p>
+          <p>À : 00:08 24/08/2021</p>
         </div>
 
         <IconButton color="secondary" variant="contained" size="small">
