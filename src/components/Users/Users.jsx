@@ -1,5 +1,5 @@
 import "./Users.scss";
-import { Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import PeopleIcon from "@material-ui/icons/People";
 import Avatar from "@material-ui/core/Avatar";
 import Modal from "@material-ui/core/Modal";

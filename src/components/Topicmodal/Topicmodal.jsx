@@ -1,5 +1,5 @@
 import "./Topicmodal.scss";
-import { Button, IconButton } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { useState } from "react";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
