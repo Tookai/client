@@ -1,11 +1,25 @@
 import "./App.scss";
 import HomePage from "./pages/HomePage/HomePage";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
 function App() {
   return (
-    <>
-      <HomePage />
-    </>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+
+        <Route exact path="/register">
+          <RegisterPage />
+        </Route>
+
+        <Route exact path="/login">
+          <HomePage />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
