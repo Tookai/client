@@ -8,9 +8,9 @@ const HomePage = () => {
     <div className="HomePage">
       <Navbar />
       <div className="flex">
-        <div className="left">
+{/*         <div className="left">
           <Leftbar />
-        </div>
+        </div> */}
         <div className="right">
           <Feed />
         </div>

@@ -1,4 +1,4 @@
-import Feedu from "../../components/UserFeed/Feedu";
+import Feed from "../../components/Feed/Feed";
 import Navbar from "../../components/Navbar/Navbar";
 import Userinfos from "../../components/Userinfos/Userinfos";
 import "./UserPage.scss";
@@ -9,7 +9,7 @@ const UserPage = () => {
       <Navbar />
       <div className="container">
         <Userinfos />
-        <Feedu />
+        <Feed />
       </div>
     </div>
   );

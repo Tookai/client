@@ -2,6 +2,8 @@ import "./Navbar.scss";
 import icon from "../../images/icon.svg";
 import Avatar from "@material-ui/core/Avatar";
 import { Link } from "react-router-dom";
+import Addpost from "../Addpost/Addpost";
+import Topicmodal from "../Topicmodal/Topicmodal";
 
 const Navbar = () => {
   return (
@@ -12,6 +14,9 @@ const Navbar = () => {
           <h1 className="h1 text">Groupomania</h1>
         </div>
       </Link>
+
+      <Topicmodal />
+      <Addpost />
 
       <div className="greeting">
         <p className="hello">Bonjour, toi.</p>

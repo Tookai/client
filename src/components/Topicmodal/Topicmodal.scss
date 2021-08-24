@@ -11,7 +11,6 @@
   top: 80vh;
   left: 5vw;
   z-index: 100;
-  display: none;
 }
 
 .topic {
@@ -20,11 +19,5 @@
 
   h2 {
     padding-left: 1rem;
-  }
-}
-
-@media (max-width: 799px) {
-  .Topicmodal {
-    display: block;
   }
 }

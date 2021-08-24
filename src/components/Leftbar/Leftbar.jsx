@@ -11,6 +11,7 @@ import SportsSoccerIcon from "@material-ui/icons/SportsSoccer";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import { Link } from "react-router-dom";
 
+
 const Leftbar = () => {
   return (
     <div className="Leftbar">
@@ -74,6 +75,8 @@ const Leftbar = () => {
           src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         />
       </div>
+
+
     </div>
   );
 };
