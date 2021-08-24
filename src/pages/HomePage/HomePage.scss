@@ -7,9 +7,9 @@
   }
 
   .left {
-    flex: 2;
+    width: 300px;
     @media (max-width: 799px) {
-        display: none;
+      display: none;
     }
   }
 
@@ -17,5 +17,3 @@
     flex: 9;
   }
 }
-
-

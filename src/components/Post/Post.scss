@@ -37,5 +37,13 @@
     padding-top: 2rem;
     display: flex;
     justify-content: space-around;
+
+    div {
+      text-align: center;
+
+      p {
+        padding: 0.3rem;
+      }
+    }
   }
 }
