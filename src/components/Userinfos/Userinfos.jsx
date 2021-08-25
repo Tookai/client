@@ -18,9 +18,9 @@ const Userinfos = () => {
             <p className="item">Métier : Développeur Web</p>
           </div>
           <div className="right">
-            <p className="item">Scolarité : OpenClassrooms</p>
             <p className="item">Ville : Le Havre</p>
             <p className="item">Origine : Montpellier</p>
+            <p className="item">Scolarité : OpenClassrooms</p>
             <p className="item">Situation amoureuse : En Couple</p>
           </div>
         </div>

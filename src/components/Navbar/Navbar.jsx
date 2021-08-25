@@ -12,7 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useState } from "react";
 
 const Navbar = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
 
   console.log(open);
 
