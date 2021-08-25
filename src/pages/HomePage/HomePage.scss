@@ -5,15 +5,4 @@
     display: flex;
     justify-content: space-evenly;
   }
-
-  .left {
-    flex: 2;
-    @media (max-width: 799px) {
-      display: none;
-    }
-  }
-
-  .right {
-    flex: 10;
-  }
 }
