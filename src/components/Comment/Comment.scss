@@ -1,0 +1,17 @@
+@import "../../../global.scss";
+
+.Comment {
+  background-color: $darkest;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 1rem;
+
+  .infos {
+    font-size: 0.9rem;
+    padding-bottom: 0.3rem;
+
+    em {
+      font-weight: bold;
+    }
+  }
+}

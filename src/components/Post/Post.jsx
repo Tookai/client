@@ -43,9 +43,11 @@ const Post = () => {
         </div>
 
         <div>
-          <Button variant="contained" color="primary" size="small">
-            Commenter
-          </Button>
+          <Link to="/comment/12">
+            <Button variant="contained" color="primary" size="small">
+              Commenter
+            </Button>
+          </Link>
           <p>(0)</p>
         </div>
       </div>

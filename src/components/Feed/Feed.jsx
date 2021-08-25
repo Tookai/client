@@ -8,12 +8,12 @@ const Feed = () => {
     <>
       <div className="Feed">
         <Post />
+{/*         <Post />
         <Post />
         <Post />
         <Post />
         <Post />
-        <Post />
-        <Post />
+        <Post /> */}
       </div>
     </>
   );
