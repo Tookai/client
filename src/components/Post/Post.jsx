@@ -1,10 +1,18 @@
 import { Button, IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
+import TimeAgo from "timeago-react";
+import * as timeago from 'timeago.js';
+import fr from 'timeago.js/lib/lang/fr';
+
+
+
 import "./Post.scss";
 import { Link } from "react-router-dom";
 
-const Post = ({ content, image }) => {
+const Post = ({ post }) => {
+  timeago.register('fr', fr);
+
   return (
     <div className="Post">
       <div className="top">
@@ -12,26 +20,25 @@ const Post = ({ content, image }) => {
           <p>
             Posté par :
             <Link to="/user/1">
-              <em> Thibaut Orcel</em>
+              <em> {post.userId}</em>
             </Link>
           </p>
-          <p>À : 00:08 24/08/2021</p>
+          <p>
+            <TimeAgo datetime={`${post.createdAt}`} locale="fr" />
+          </p>
         </div>
         <div>
           <IconButton color="primary" variant="contained" size="small">
             <MoreHorizIcon />
           </IconButton>
-{/*           <IconButton color="secondary" variant="contained" size="small">
-            <ClearIcon />
-          </IconButton> */}
         </div>
       </div>
 
       <hr />
 
       <div className="content">
-        <p className="text">{content}</p>
-        <img src={`${image}`} alt="random" className="img" loading="lazy" />
+        <p className="text">{post.desc}</p>
+        {post.image && <img src={`${post.image}`} alt="random" className="img" loading="lazy" />}
       </div>
 
       <hr />

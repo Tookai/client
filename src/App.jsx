@@ -5,32 +5,36 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CommentPage from "./pages/CommentPage/CommentPage";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 function App() {
+  const queryClient = new QueryClient();
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
 
-        <Route exact path="/register">
-          <RegisterPage />
-        </Route>
+          <Route exact path="/register">
+            <RegisterPage />
+          </Route>
 
-        <Route exact path="/login">
-          <LoginPage />
-        </Route>
+          <Route exact path="/login">
+            <LoginPage />
+          </Route>
 
-        <Route path="/user/:id">
-          <UserPage />
-        </Route>
+          <Route path="/user/:id">
+            <UserPage />
+          </Route>
 
-        <Route path="/comment/:id">
-          <CommentPage />
-        </Route>
-      </Switch>
-    </Router>
+          <Route path="/comment/:id">
+            <CommentPage />
+          </Route>
+        </Switch>
+      </Router>
+    </QueryClientProvider>
   );
 }
 
