@@ -1,5 +1,4 @@
 import { Button, IconButton } from "@material-ui/core";
-import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
