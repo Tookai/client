@@ -4,18 +4,18 @@ import Post from "../Post/Post";
 import "./Feed.scss";
 
 const Feed = () => {
-const { data, isLoading, isError } = useQuery("feed", api.SelectAllPost);
+  const { data, isLoading, isError } = useQuery("feed", api.selectAllPost);
 
   data?.sort(function (a, b) {
     return b.id - a.id;
   });
 
   if (isLoading) {
-    return <div>The data is loading...</div>
+    return <div>The data is loading...</div>;
   }
 
   if (isError) {
-    return <div>There seems to be an error...</div>
+    return <div>There seems to be an error...</div>;
   }
 
   return (

@@ -6,4 +6,6 @@ const Axios = axios.create({
     headers: {'X-Custom-Header': 'foobar'} */
 });
 
-export const SelectAllPost = () => Axios.get('/post/all').then(res => res.data)
+export const selectAllPost = () => Axios.get("/post/all").then((res) => res.data);
+
+export const createPost = (post) => Axios.post("/post/post", post).then((res) => res.data);
