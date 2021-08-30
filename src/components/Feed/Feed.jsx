@@ -3,7 +3,7 @@ import { useQuery, useQueryClient } from "react-query";
 import * as api from "../../apiCall";
 import Post from "../Post/Post";
 import "./Feed.scss";
-
+//
 const Feed = () => {
   const pathname = window.location.pathname;
   const queryClient = useQueryClient();
