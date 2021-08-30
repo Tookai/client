@@ -1,10 +1,17 @@
-import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
+import { useQuery, useQueryClient } from "react-query";
 import * as api from "../../apiCall";
 import Post from "../Post/Post";
 import "./Feed.scss";
 
 const Feed = () => {
-  const { data, isLoading, isError } = useQuery("feed", api.selectAllPost);
+  const pathname = window.location.pathname;
+  const queryClient = useQueryClient();
+  useEffect(() => {
+    queryClient.invalidateQueries("feed");
+  }, [pathname, queryClient]);
+
+  const { data, isLoading, isError } = useQuery("feed", () => api.selectPost(pathname));
 
   data?.sort(function (a, b) {
     return b.id - a.id;

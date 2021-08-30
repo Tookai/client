@@ -2,16 +2,14 @@ import { Button, IconButton } from "@material-ui/core";
 import ClearIcon from "@material-ui/icons/Clear";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import TimeAgo from "timeago-react";
-import * as timeago from 'timeago.js';
-import fr from 'timeago.js/lib/lang/fr';
-
-
+import * as timeago from "timeago.js";
+import fr from "timeago.js/lib/lang/fr";
 
 import "./Post.scss";
 import { Link } from "react-router-dom";
 
 const Post = ({ post }) => {
-  timeago.register('fr', fr);
+  timeago.register("fr", fr);
 
   return (
     <div className="Post">
@@ -52,7 +50,7 @@ const Post = ({ post }) => {
         </div>
 
         <div>
-          <Link to="/comment/12">
+          <Link to={`/id/${post.id}`}>
             <Button variant="contained" color="primary" size="small">
               Commenter
             </Button>

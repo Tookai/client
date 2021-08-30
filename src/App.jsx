@@ -13,10 +13,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
-          <Route exact path="/">
-            <HomePage />
-          </Route>
-
           <Route exact path="/register">
             <RegisterPage />
           </Route>
@@ -29,8 +25,12 @@ function App() {
             <UserPage />
           </Route>
 
-          <Route path="/comment/:id">
+          <Route path="/id/:id">
             <CommentPage />
+          </Route>
+
+          <Route path="/">
+            <HomePage />
           </Route>
         </Switch>
       </Router>
