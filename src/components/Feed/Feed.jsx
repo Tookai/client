@@ -11,7 +11,7 @@ const Feed = () => {
     queryClient.invalidateQueries("feed");
   }, [pathname, queryClient]);
 
-  const { data, isLoading, isError } = useQuery("feed", () => api.selectPost(pathname));
+  const { data, isLoading, isError } = useQuery(["feed", { pathname }], () => api.selectPost(pathname));
 
   data?.sort(function (a, b) {
     return b.id - a.id;
