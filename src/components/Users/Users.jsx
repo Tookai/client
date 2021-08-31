@@ -54,7 +54,7 @@ const Users = () => {
             {data?.map((user) => (
               <Link to={`/user/${user.id}`} onClick={handleClick} key={user.id}>
                 <div className="user">
-                  <Avatar alt={`Photo de ${user.firstName}`} src={`${user.avatar}`} />
+                  <Avatar alt={`${user.firstName} Avatar`} src={`${user.avatar}`} />
                   <p className="username">
                     {user.firstName} {user.lastName}
                   </p>

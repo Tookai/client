@@ -6,6 +6,8 @@ import Modal from "@material-ui/core/Modal";
 import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import gsap from "gsap";
+import { useQuery } from "react-query";
+import * as api from "../../apiCall";
 
 const Logout = () => {
   const history = useHistory();
@@ -21,6 +23,11 @@ const Logout = () => {
     localStorage.clear();
     history.push("/login");
   };
+
+  //
+  // Get current user Data
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  const { data, isLoading } = useQuery("logged-user", () => api.SelectOneUser(loggedUser.userId));
 
   //
   // Gsap Animation
@@ -42,12 +49,10 @@ const Logout = () => {
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div className="logout__modal">
-          <Avatar
-            alt="user"
-            src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-            style={{ height: "250px", width: "250px" }}
-          />
-          <p className="username">Thibaut Orcel</p>
+          <Avatar alt={`${data[0].firstName}`} src={`${data[0].avatar}`} style={{ height: "250px", width: "250px" }} />
+          <p className="username">
+            {data[0].firstName} {data[0].lastName}
+          </p>
 
           <h2 className="h2">Vous nous quittez déjà ?</h2>
 
