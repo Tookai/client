@@ -21,7 +21,7 @@ const LoginPage = () => {
             <input type="password" id="password" name="password" />
           </div>
 
-          <Link to="/">
+          <Link>
             <Button variant="contained" color="primary">
               Se Connecter
             </Button>

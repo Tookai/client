@@ -15,6 +15,9 @@ const Addpost = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    setTopic("");
+    setDesc("");
+    setImage("");
     setOpen(false);
   };
   //
@@ -22,7 +25,7 @@ const Addpost = () => {
   const [topic, setTopic] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
-  const userId = 1;
+  const userId = 2;
   const post = { topic, desc, image, userId };
   //
   // Update feed on submit
@@ -30,12 +33,19 @@ const Addpost = () => {
   const { mutate, isLoading } = useMutation(api.createPost, {
     onSuccess: () => {
       queryClient.invalidateQueries("feed");
+      setTopic("");
+      setDesc("");
+      setImage("");
       setOpen(false);
     },
   });
   // Add a post
   const handleSubmit = () => {
-    mutate(post);
+    if ((desc !== "" || image !== "") && topic !== "") {
+      mutate(post);
+    } else {
+      alert("Certains éléments devraient être remplis.");
+    }
   };
   //
   // Gsap Animation

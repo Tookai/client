@@ -9,3 +9,5 @@ const Axios = axios.create({
 export const selectPost = (param) => Axios.get(`/post${param}`).then((res) => res.data);
 
 export const createPost = (post) => Axios.post("/post/post", post).then((res) => res.data);
+
+export const createUser = (user) => Axios.post("/user/register", user).then((res) => res.data);
