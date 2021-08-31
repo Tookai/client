@@ -9,24 +9,35 @@ import Users from "../Users/Users";
 import { IconButton } from "@material-ui/core";
 import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  console.log(open);
+  //
+  // Gsap Animation
+  const roundedBtn = useRef();
+  useEffect(() => {
+    open ? gsap.from(roundedBtn.current, { rotate: 720, duration: 1.2 }) : gsap.from(roundedBtn.current, { rotate: -720, duration: 1.2 });
+  }, [open]);
+  //
+  const logo = useRef();
+  useEffect(() => {
+    gsap.from(logo.current, { rotation: -360, duration: 4, ease: "none", repeat: -1 });
+  }, []);
 
   return (
     <div className="Navbar">
       <Link to="/">
         <div className="logo">
-          <img src={icon} alt="" className="img" />
+          <img src={icon} alt="Logo : Globe" className="img" ref={logo} />
           <h1 className="h1 text">Groupomania</h1>
         </div>
       </Link>
 
       <div className="modals" onClick={() => setOpen(!open)}>
-        <div>
+        <div ref={roundedBtn}>
           <IconButton color="primary">{open ? <CloseIcon fontSize="medium" /> : <AddIcon fontSize="medium" />}</IconButton>
         </div>
       </div>
