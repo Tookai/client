@@ -13,12 +13,12 @@ const LoginPage = () => {
         <form className="form">
           <div className="item">
             <label htmlFor="email">E-Mail :</label>
-            <input placeholder="jean.dupont@gmania.fr" type="email" id="email" name="email" />
+            <input required placeholder="jean.dupont@gmania.fr" type="email" id="email" name="email" />
           </div>
 
           <div className="item">
             <label htmlFor="password">Mot de Passe :</label>
-            <input type="password" id="password" name="password" />
+            <input required type="password" id="password" name="password" />
           </div>
 
           <Link>

@@ -42,27 +42,27 @@ const RegisterPage = () => {
         <form className="form" onSubmit={handleSubmit}>
           <div className="item">
             <label htmlFor="firstName">Prénom :</label>
-            <input placeholder="Jean" type="text" id="firstName" name="firstName" onChange={(e) => setFirstName(e.target.value)} />
+            <input required placeholder="Jean" type="text" id="firstName" name="firstName" onChange={(e) => setFirstName(e.target.value)} />
           </div>
 
           <div className="item">
             <label htmlFor="lastName">Nom :</label>
-            <input placeholder="Dupont" type="text" id="lastName" name="lastName" onChange={(e) => setLastName(e.target.value)} />
+            <input required placeholder="Dupont" type="text" id="lastName" name="lastName" onChange={(e) => setLastName(e.target.value)} />
           </div>
 
           <div className="item">
             <label htmlFor="email">E-Mail :</label>
-            <input placeholder="jean.dupont@gmania.fr" type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} />
+            <input required placeholder="jean.dupont@gmania.fr" type="email" id="email" name="email" onChange={(e) => setEmail(e.target.value)} />
           </div>
 
           <div className="item">
             <label htmlFor="password">Mot de Passe :</label>
-            <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
+            <input required type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
           </div>
 
           <div className="item">
             <label htmlFor="confirmPassword">Confirmer le Mot de Passe :</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" onChange={(e) => setConfirmPw(e.target.value)} />
+            <input required type="password" id="confirmPassword" name="confirmPassword" onChange={(e) => setConfirmPw(e.target.value)} />
           </div>
           {!isLoading ? (
             <Button variant="contained" color="primary" type="submit">
