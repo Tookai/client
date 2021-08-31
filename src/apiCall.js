@@ -10,6 +10,14 @@ export const selectPost = (param) => Axios.get(`/post${param}`).then((res) => re
 
 export const createPost = (post) => Axios.post("/post/post", post).then((res) => res.data);
 
+// -----------
+// --------------
+// -----------
+
 export const createUser = (user) => Axios.post("/user/register", user).then((res) => res.data);
 
 export const loginUser = (user) => Axios.post("/user/login", user).then((res) => res.data);
+
+export const SelectAllUsers = () => Axios.get("/user/all").then((res) => res.data);
+
+export const SelectOneUser = (id) => Axios.get(`/user/${id}`).then((res) => res.data);

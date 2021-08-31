@@ -13,17 +13,20 @@ const LoginPage = () => {
   const history = useHistory();
 
   const queryClient = useQueryClient();
-  const { mutate, isLoading, error } = useMutation(api.loginUser, {
+  const { mutate, isLoading} = useMutation(api.loginUser, {
     onSuccess: (data) => {
       // queryClient.invalidateQueries("user");
-      console.log(data, "from success");
+      const user = { userId: data[0].id };
+      localStorage.setItem("user", JSON.stringify(user));
       history.push("/");
     },
     onError: () => {
-      alert("L'identifiant ou le mot de passe est incorrect.")
+      alert("L'identifiant ou le mot de passe est incorrect.");
     },
   });
   //
+  //
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("submit");

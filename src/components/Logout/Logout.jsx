@@ -18,6 +18,7 @@ const Logout = () => {
     setOpen(false);
   };
   const handleLogout = () => {
+    localStorage.clear();
     history.push("/login");
   };
 

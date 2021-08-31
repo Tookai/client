@@ -11,10 +11,16 @@ import AddIcon from "@material-ui/icons/Add";
 import CloseIcon from "@material-ui/icons/Close";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import * as api from "../../apiCall";
+import { useQuery } from "react-query";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  //
+  // Get current user Data
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  const { data, isLoading } = useQuery("logged-user", () => api.SelectOneUser(loggedUser.userId));
   //
   // Gsap Animation
   const roundedBtn = useRef();
@@ -50,15 +56,19 @@ const Navbar = () => {
         </>
       )}
 
-      <div className="greeting">
-        <p className="hello">Bonjour, toi.</p>
-        <Link to="/user/1">
-          <Avatar
-            alt="user"
-            src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          />
-        </Link>
-      </div>
+      {isLoading ? (
+        <div className="greeting">
+          <p className="hello">Bonjour, toi.</p>
+          <Avatar alt="" src="" />
+        </div>
+      ) : (
+        <div className="greeting">
+          <p className="hello">Bonjour, {data[0].firstName}</p>
+          <Link to={`/user/${loggedUser.userId}`}>
+            <Avatar alt={`${data[0].firstName} Avatar`} src={`${data[0].avatar}`} />
+          </Link>
+        </div>
+      )}
     </div>
   );
 };

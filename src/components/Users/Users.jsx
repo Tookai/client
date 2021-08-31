@@ -5,6 +5,8 @@ import Avatar from "@material-ui/core/Avatar";
 import Modal from "@material-ui/core/Modal";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
+import { useQuery } from "react-query";
+import * as api from "../../apiCall";
 
 const Users = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +24,10 @@ const Users = () => {
     gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
   }, []);
 
+  //
+  // Fetch users
+  const { data, isLoading, isError } = useQuery("user", api.SelectAllUsers);
+
   return (
     <>
       <div className="Users" ref={roundedBtn}>
@@ -36,253 +42,14 @@ const Users = () => {
       <Modal open={open} onClose={handleClose} style={{ display: "flex", alignItems: "center", justifyContent: "flex-end" }}>
         <div className="users__modal">
           <div className="container">
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Julia Fauvel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Thibaut Orcel</p>
-            </div>
-
-            <div className="user">
-              <Avatar
-                alt="user"
-                src="https://images.pexels.com/photos/3586798/pexels-photo-3586798.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              />
-              <p className="username">Jean Jean</p>
-            </div>
+            {data?.map((user) => (
+              <div className="user" key={user.id}>
+                <Avatar alt={`Photo de ${user.firstName}`} src={`${user.avatar}`} />
+                <p className="username">
+                  {user.firstName} {user.lastName}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </Modal>
