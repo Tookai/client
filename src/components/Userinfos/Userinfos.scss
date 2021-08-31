@@ -6,9 +6,15 @@
 
     img {
       object-fit: cover;
-      width: 100%;
-      height: auto;
+      width: 750px;
+      max-height: 320px;
       border-radius: 1rem;
+    }
+
+    @media (max-width: 799px) {
+      img {
+        width: 100%;
+      }
     }
   }
 
@@ -23,8 +29,8 @@
 
       img {
         object-fit: cover;
-        width: 100%;
-        height: auto;
+        width: 150px;
+        height: 150px;
         border-radius: 1rem;
       }
     }

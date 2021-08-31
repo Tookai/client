@@ -5,8 +5,9 @@ import Avatar from "@material-ui/core/Avatar";
 import Modal from "@material-ui/core/Modal";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 import * as api from "../../apiCall";
+import { Link } from "react-router-dom";
 
 const Users = () => {
   const [open, setOpen] = useState(false);
@@ -28,6 +29,14 @@ const Users = () => {
   // Fetch users
   const { data, isLoading, isError } = useQuery("user", api.SelectAllUsers);
 
+  //
+  // Refetch data on user change
+  const queryClient = useQueryClient();
+  const handleClick = () => {
+    queryClient.invalidateQueries("profile-user");
+    queryClient.invalidateQueries("feed");
+  };
+
   return (
     <>
       <div className="Users" ref={roundedBtn}>
@@ -43,12 +52,14 @@ const Users = () => {
         <div className="users__modal">
           <div className="container">
             {data?.map((user) => (
-              <div className="user" key={user.id}>
-                <Avatar alt={`Photo de ${user.firstName}`} src={`${user.avatar}`} />
-                <p className="username">
-                  {user.firstName} {user.lastName}
-                </p>
-              </div>
+              <Link to={`/user/${user.id}`} onClick={handleClick} key={user.id}>
+                <div className="user">
+                  <Avatar alt={`Photo de ${user.firstName}`} src={`${user.avatar}`} />
+                  <p className="username">
+                    {user.firstName} {user.lastName}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         </div>

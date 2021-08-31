@@ -12,7 +12,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import * as api from "../../apiCall";
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -32,6 +32,13 @@ const Navbar = () => {
   useEffect(() => {
     gsap.from(logo.current, { rotation: -360, duration: 4, ease: "none", repeat: -1 });
   }, []);
+  //
+  //
+  const queryClient = useQueryClient();
+  const handleClick = () => {
+    queryClient.invalidateQueries("profile-user");
+    queryClient.invalidateQueries("feed");
+  };
 
   return (
     <div className="Navbar">
@@ -64,7 +71,7 @@ const Navbar = () => {
       ) : (
         <div className="greeting">
           <p className="hello">Bonjour, {data[0].firstName}</p>
-          <Link to={`/user/${loggedUser.userId}`}>
+          <Link to={`/user/${loggedUser.userId}`} onClick={handleClick}>
             <Avatar alt={`${data[0].firstName} Avatar`} src={`${data[0].avatar}`} />
           </Link>
         </div>

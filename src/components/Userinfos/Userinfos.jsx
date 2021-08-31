@@ -1,27 +1,51 @@
 import "./Userinfos.scss";
+import * as api from "../../apiCall";
+import { useQuery } from "react-query";
 
 const Userinfos = () => {
+  const id = window.location.pathname.split("/user/")[1];
+  const { data, isLoading } = useQuery(["profile-user", { id }], () => api.SelectOneUser(id));
+
+  if (isLoading) {
+    return <div>...</div>;
+  }
+
+  const u = data[0];
   return (
     <div className="Userinfos">
-      <div className="cover">
-        <img src="https://picsum.photos/750/320" alt="" />
-      </div>
-      <div className="infos">
-        <div className="profilePic">
-          <img src="https://picsum.photos/150/150" alt="" />
+      {u.cover ? (
+        <div className="cover">
+          <img src={`${u.cover}`} alt="" />
         </div>
+      ) : (
+        <div className="cover">
+          <img src="https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+        </div>
+      )}
+
+      <div className="infos">
+        {u.avatar ? (
+          <div className="profilePic">
+            <img src={`${u.avatar}`} alt="" />
+          </div>
+        ) : (
+          <div className="profilePic">
+            <img src="https://images.pexels.com/photos/19677/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+          </div>
+        )}
+
         <div className="profileInfos">
           <div className="left">
-            <p className="item">Prénom : Thibaut</p>
-            <p className="item">Nom : Orcel</p>
-            <p className="item">Date de naissance : 21/04/1996</p>
-            <p className="item">Métier : Développeur Web</p>
+            <p className="item">Prénom : {u.firstName}</p>
+            <p className="item">Nom : {u.lastName}</p>
+            <p className="item">Date de naissance : {u.birthday}</p>
+            <p className="item">Métier : {u.job}</p>
           </div>
           <div className="right">
-            <p className="item">Ville : Le Havre</p>
-            <p className="item">Origine : Montpellier</p>
-            <p className="item">Scolarité : OpenClassrooms</p>
-            <p className="item">Situation amoureuse : En Couple</p>
+            <p className="item">Ville : {u.city}</p>
+            <p className="item">Origine : {u.fromCity}</p>
+            <p className="item">Scolarité : {u.scholarship}</p>
+            <p className="item">Situation amoureuse : {u.relationship}</p>
           </div>
         </div>
       </div>
