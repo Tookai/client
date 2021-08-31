@@ -1,31 +1,67 @@
 import "./LoginPage.scss";
 import stackedLogo from "../../images/stackedLogo.svg";
 import { Button } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useState } from "react";
+import { useMutation, useQueryClient } from "react-query";
+import * as api from "../../apiCall";
 
 const LoginPage = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const history = useHistory();
+
+  const queryClient = useQueryClient();
+  const { mutate, isLoading, error } = useMutation(api.loginUser, {
+    onSuccess: (data) => {
+      // queryClient.invalidateQueries("user");
+      console.log(data, "from success");
+      history.push("/");
+    },
+    onError: () => {
+      alert("L'identifiant ou le mot de passe est incorrect.")
+    },
+  });
+  //
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    if (password !== "" && email !== "") {
+      const user = { email, password };
+      mutate(user);
+    } else {
+      alert("Les champs doivent être remplis.");
+    }
+  };
+
   return (
     <div className="LoginPage">
       <div className="left">
         <img src={stackedLogo} alt="" />
       </div>
       <div className="right">
-        <form className="form">
+        <form className="form" onSubmit={handleSubmit}>
           <div className="item">
             <label htmlFor="email">E-Mail :</label>
-            <input required placeholder="jean.dupont@gmania.fr" type="email" id="email" name="email" />
+            <input
+              required
+              placeholder="jean.dupont@gmania.fr"
+              type="email"
+              id="email"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
 
           <div className="item">
             <label htmlFor="password">Mot de Passe :</label>
-            <input required type="password" id="password" name="password" />
+            <input required type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)} />
           </div>
 
-          <Link>
-            <Button variant="contained" color="primary">
-              Se Connecter
-            </Button>
-          </Link>
+          <Button variant="contained" color="primary" type="submit">
+            Se Connecter
+          </Button>
         </form>
 
         <p className="question">Vous n'avez pas encore de compte ?</p>
