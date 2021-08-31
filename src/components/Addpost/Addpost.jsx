@@ -2,11 +2,14 @@ import "./Addpost.scss";
 import { Button, IconButton } from "@material-ui/core";
 import PostAddIcon from "@material-ui/icons/PostAdd";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import * as api from "../../apiCall";
+import gsap from "gsap";
 
 const Addpost = () => {
+  //
+  // For Modal
   const [open, setOpen] = useState(false);
   const handleOpen = () => {
     setOpen(true);
@@ -15,16 +18,14 @@ const Addpost = () => {
     setOpen(false);
   };
   //
-  //
-
+  // Get form data
   const [topic, setTopic] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
   const userId = 1;
   const post = { topic, desc, image, userId };
   //
-  //
-
+  // Update feed on submit
   const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation(api.createPost, {
     onSuccess: () => {
@@ -32,14 +33,20 @@ const Addpost = () => {
       setOpen(false);
     },
   });
-
+  // Add a post
   const handleSubmit = () => {
     mutate(post);
   };
+  //
+  // Gsap Animation
+  const roundedBtn = useRef();
+  useEffect(() => {
+    gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
+  }, []);
 
   return (
     <>
-      <div className="Addpost">
+      <div className="Addpost" ref={roundedBtn}>
         <div>
           <IconButton color="primary" onClick={handleOpen}>
             <PostAddIcon fontSize="large" />

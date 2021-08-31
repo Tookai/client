@@ -3,7 +3,8 @@ import { IconButton } from "@material-ui/core";
 import PeopleIcon from "@material-ui/icons/People";
 import Avatar from "@material-ui/core/Avatar";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+import gsap from "gsap";
 
 const Users = () => {
   const [open, setOpen] = useState(false);
@@ -14,9 +15,16 @@ const Users = () => {
     setOpen(false);
   };
 
+  //
+  // Gsap Animation
+  const roundedBtn = useRef();
+  useEffect(() => {
+    gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
+  }, []);
+
   return (
     <>
-      <div className="Users">
+      <div className="Users" ref={roundedBtn}>
         <div>
           <IconButton color="primary" onClick={handleOpen}>
             <PeopleIcon fontSize="large" />

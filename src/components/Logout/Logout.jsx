@@ -3,8 +3,9 @@ import { Button, IconButton } from "@material-ui/core";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import Avatar from "@material-ui/core/Avatar";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import gsap from "gsap";
 
 const Logout = () => {
   const history = useHistory();
@@ -20,9 +21,16 @@ const Logout = () => {
     history.push("/login");
   };
 
+  //
+  // Gsap Animation
+  const roundedBtn = useRef();
+  useEffect(() => {
+    gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
+  }, []);
+
   return (
     <>
-      <div className="Logout">
+      <div className="Logout" ref={roundedBtn}>
         <div>
           <IconButton color="default" onClick={handleOpen}>
             <ExitToAppIcon fontSize="large" />

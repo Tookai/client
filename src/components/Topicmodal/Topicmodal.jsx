@@ -1,7 +1,7 @@
 import "./Topicmodal.scss";
 import { IconButton } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import AccessibilityIcon from "@material-ui/icons/Accessibility";
 import ChildCareIcon from "@material-ui/icons/ChildCare";
 import PetsIcon from "@material-ui/icons/Pets";
@@ -12,6 +12,7 @@ import CreateNewFolderIcon from "@material-ui/icons/CreateNewFolder";
 import SportsSoccerIcon from "@material-ui/icons/SportsSoccer";
 import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import gsap from "gsap";
 
 const Topicmodal = () => {
   const [open, setOpen] = useState(false);
@@ -22,14 +23,20 @@ const Topicmodal = () => {
     setOpen(false);
   };
 
+  //
+  // Gsap Animation
+  const roundedBtn = useRef();
+  useEffect(() => {
+    gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
+  }, []);
+
   return (
     <>
-      <div className="Topicmodal">
+      <div className="Topicmodal" ref={roundedBtn}>
         <div>
-
-        <IconButton color="primary" onClick={handleOpen}>
-          <FormatListBulletedIcon fontSize="large" />
-        </IconButton>
+          <IconButton color="primary" onClick={handleOpen}>
+            <FormatListBulletedIcon fontSize="large" />
+          </IconButton>
         </div>
         <p>catégories</p>
       </div>
