@@ -1,5 +1,4 @@
 import { Button, IconButton } from "@material-ui/core";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
 import fr from "timeago.js/lib/lang/fr";
@@ -7,6 +6,7 @@ import * as api from "../../apiCall";
 import "./Post.scss";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
+import Updatepost from "../Updatepost/Updatepost";
 
 const Post = ({ post }) => {
   timeago.register("fr", fr);
@@ -35,13 +35,7 @@ const Post = ({ post }) => {
             <TimeAgo datetime={`${post.createdAt}`} locale="fr" />
           </p>
         </div>
-        <div>
-          {post.userId === loggedUser.userId && (
-            <IconButton color="primary" variant="contained" size="small">
-              <MoreHorizIcon />
-            </IconButton>
-          )}
-        </div>
+        <div>{post.userId === loggedUser.userId && <Updatepost post={post} />}</div>
       </div>
 
       <hr />
