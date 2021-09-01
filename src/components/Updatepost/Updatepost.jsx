@@ -34,12 +34,25 @@ const Updatepost = ({ post }) => {
       setOpen(false);
     },
   });
+  //
+  const { mutate: mutation } = useMutation(api.deletePost, {
+    onSuccess: () => {
+      queryClient.invalidateQueries(["feed", { pathname }]);
+      setOpen(false);
+    },
+  });
 
   //
-  const handleSubmit = () => {
+  const handleUpdate = () => {
     const content = { desc, image, topic };
     const body = { id, content };
     mutate(body);
+  };
+
+  const handleDelete = () => {
+    if (window.confirm("Voulez vous vraiment supprimer ?")) {
+      mutation(id);
+    }
   };
 
   return (
@@ -78,8 +91,8 @@ const Updatepost = ({ post }) => {
               style={{ backgroundColor: "white", marginBottom: "1rem" }}
               onChange={(e) => setDesc(e.target.value)}
             />
+            {image && <img src={image} alt="" className="image__preview" />}
 
-            <img src={image} alt={`post ${post.id}`} className="image__preview" />
             <label htmlFor="avatar">Image :</label>
             <input
               type="text"
@@ -91,7 +104,7 @@ const Updatepost = ({ post }) => {
           </form>
 
           <div className="btn__container">
-            <Button variant="contained" color="primary" onClick={handleSubmit} style={{ margin: "0.3rem" }}>
+            <Button variant="contained" color="primary" onClick={handleUpdate} style={{ margin: "0.3rem" }}>
               Mettre à jour
             </Button>
             <Button variant="contained" color="secondary" onClick={handleClose} style={{ margin: "0.3rem" }}>
@@ -100,7 +113,7 @@ const Updatepost = ({ post }) => {
           </div>
           <div className="center__btn">
             <div className="delete__btn">
-              <Button variant="contained" color="secondary" style={{ margin: "0.3rem" }}>
+              <Button variant="contained" color="secondary" style={{ margin: "0.3rem" }} onClick={handleDelete}>
                 Supprimer le post
               </Button>
             </div>

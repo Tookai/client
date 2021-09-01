@@ -12,6 +12,8 @@ export const selectPost = (param) => Axios.get(`/post${param}`).then((res) => re
 
 export const updatePost = ({id, content}) => Axios.put(`/post/update/${id}`, content).then((res) => res.data);
 
+export const deletePost = (id) => Axios.delete(`/post/delete/${id}`).then((res) => res.data);
+
 // -----------
 // --------------
 // -----------
