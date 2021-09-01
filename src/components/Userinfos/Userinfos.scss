@@ -49,6 +49,13 @@
       justify-content: space-between;
     }
   }
+
+  .update__btn {
+    margin-top: 2rem;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+  }
 }
 
 @media (max-width: 799px) {

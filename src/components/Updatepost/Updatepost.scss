@@ -1,0 +1,26 @@
+@import "../../../global.scss";
+
+.updatepost__modal {
+  background-color: $dark;
+  padding: 3rem;
+  border-radius: 1rem;
+  width: 40vw;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    justify-content: center;
+    text-align: center;
+
+    input {
+      padding: 0.3rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .btn__container {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

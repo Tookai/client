@@ -1,10 +1,17 @@
 import "./Userinfos.scss";
 import * as api from "../../apiCall";
 import { useQuery } from "react-query";
+import { Button } from "@material-ui/core";
+import Updatepic from "../Updatepic/Updatepic";
+import Updateinfos from "../Updateinfos/Updateinfos";
 
 const Userinfos = () => {
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  //
   const id = window.location.pathname.split("/user/")[1];
-  const { data, isLoading } = useQuery(["profile-user", { id }], () => api.SelectOneUser(id));
+  const { data, isLoading } = useQuery(["profile-user", { id }], () => api.selectOneUser(id));
+
+  console.log(loggedUser);
 
   if (isLoading) {
     return <div>...</div>;
@@ -49,6 +56,12 @@ const Userinfos = () => {
           </div>
         </div>
       </div>
+      {parseInt(id) === loggedUser.userId && (
+        <div className="update__btn">
+          <Updatepic user={u} />
+          <Updateinfos user={u} />
+        </div>
+      )}
     </div>
   );
 };

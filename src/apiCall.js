@@ -18,6 +18,12 @@ export const createUser = (user) => Axios.post("/user/register", user).then((res
 
 export const loginUser = (user) => Axios.post("/user/login", user).then((res) => res.data);
 
-export const SelectAllUsers = () => Axios.get("/user/all").then((res) => res.data);
+export const selectAllUsers = () => Axios.get("/user/all").then((res) => res.data);
 
-export const SelectOneUser = (id) => Axios.get(`/user/${id}`).then((res) => res.data);
+export const selectOneUser = (id) => Axios.get(`/user/${id}`).then((res) => res.data);
+
+export const updateUserPic = ({ id, pictures }) => Axios.put(`/user/update/pictures/${id}`, pictures).then((res) => res.data);
+
+export const updateUserInfos = ({ id, user }) => Axios.put(`/user/update/infos/${id}`, user).then((res) => res.data);
+
+export const updateUserCredentials = ({ id, cred }) => Axios.put(`/user/update/credentials/${id}`, cred).then((res) => res.data);

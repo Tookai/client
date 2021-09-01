@@ -12,7 +12,7 @@ const Post = ({ post }) => {
   timeago.register("fr", fr);
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   const id = post.id;
-  const { data, isLoading } = useQuery(["post-user", { id }], () => api.SelectOneUser(post.userId));
+  const { data, isLoading } = useQuery(["post-user", { id }], () => api.selectOneUser(post.userId));
 
   return (
     <div className="Post">
