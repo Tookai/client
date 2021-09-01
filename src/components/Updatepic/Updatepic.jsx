@@ -43,7 +43,7 @@ const Updatepic = ({ user }) => {
   return (
     <div className="Updatepic">
       <Button variant="contained" color="primary" onClick={handleOpen} style={{margin: "0.3rem"}}>
-        Mettre à jour vos photos.
+        Mettre à jour<br/> vos photos
       </Button>
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

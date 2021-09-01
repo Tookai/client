@@ -31,3 +31,5 @@ export const updateUserPic = ({ id, pictures }) => Axios.put(`/user/update/pictu
 export const updateUserInfos = ({ id, user }) => Axios.put(`/user/update/infos/${id}`, user).then((res) => res.data);
 
 export const updateUserCredentials = ({ id, cred }) => Axios.put(`/user/update/credentials/${id}`, cred).then((res) => res.data);
+
+export const deleteUser = (id) => Axios.delete(`/user/delete/${id}`).then((res) => res.data);

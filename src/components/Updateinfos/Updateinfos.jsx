@@ -86,7 +86,7 @@ const Updateinfos = ({ user }) => {
   return (
     <div className="Updateinfos">
       <Button variant="contained" color="primary" onClick={handleOpen} style={{margin: "0.3rem"}}>
-        Mettre à jour vos infos.
+        Mettre à jour <br/> vos infos
       </Button>
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

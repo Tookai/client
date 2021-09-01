@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { Button } from "@material-ui/core";
 import Updatepic from "../Updatepic/Updatepic";
 import Updateinfos from "../Updateinfos/Updateinfos";
+import Deluser from "../Deluser/Deluser";
 
 const Userinfos = () => {
   const loggedUser = JSON.parse(localStorage.getItem("user"));
@@ -60,6 +61,7 @@ const Userinfos = () => {
         <div className="update__btn">
           <Updatepic user={u} />
           <Updateinfos user={u} />
+          <Deluser user={u} />
         </div>
       )}
     </div>
