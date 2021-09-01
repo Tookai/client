@@ -3,7 +3,7 @@ import stackedLogo from "../../images/stackedLogo.svg";
 import { Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import * as api from "../../apiCall";
 
 const LoginPage = () => {
@@ -12,19 +12,18 @@ const LoginPage = () => {
 
   const history = useHistory();
 
-  const queryClient = useQueryClient();
-  const { mutate, isLoading} = useMutation(api.loginUser, {
+  const { mutate } = useMutation(api.loginUser, {
     onSuccess: (data) => {
-      // queryClient.invalidateQueries("user");
       const user = { userId: data[0].id };
       localStorage.setItem("user", JSON.stringify(user));
-      history.push("/");
     },
     onError: () => {
       alert("L'identifiant ou le mot de passe est incorrect.");
     },
   });
   //
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  loggedUser && history.push("/");
   //
 
   const handleSubmit = (e) => {
