@@ -10,7 +10,7 @@ export const createPost = (post) => Axios.post("/post/post", post).then((res) =>
 
 export const selectPost = (param) => Axios.get(`/post${param}`).then((res) => res.data);
 
-export const updatePost = ({id, content}) => Axios.put(`/post/update/${id}`, content).then((res) => res.data);
+export const updatePost = ({ id, content }) => Axios.put(`/post/update/${id}`, content).then((res) => res.data);
 
 export const deletePost = (id) => Axios.delete(`/post/delete/${id}`).then((res) => res.data);
 
@@ -33,3 +33,13 @@ export const updateUserInfos = ({ id, user }) => Axios.put(`/user/update/infos/$
 export const updateUserCredentials = ({ id, cred }) => Axios.put(`/user/update/credentials/${id}`, cred).then((res) => res.data);
 
 export const deleteUser = (id) => Axios.delete(`/user/delete/${id}`).then((res) => res.data);
+
+// -----------
+// --------------
+// -----------
+
+export const whoLiked = (postId) => Axios.get(`/like/${postId}/who`).then((res) => res.data);
+
+export const addLike = ({ postId, userId }) => Axios.post(`/like/${postId}/like/${userId}`).then((res) => res.dat);
+
+export const removeLike = ({ postId, userId }) => Axios.delete(`/like/${postId}/dislike/${userId}`).then((res) => res.dat);

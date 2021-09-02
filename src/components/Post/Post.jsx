@@ -7,6 +7,7 @@ import "./Post.scss";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
 import Updatepost from "../Updatepost/Updatepost";
+import Likes from "../Likes/Likes";
 
 const Post = ({ post }) => {
   timeago.register("fr", fr);
@@ -49,10 +50,7 @@ const Post = ({ post }) => {
 
       <div className="actions">
         <div>
-          <Button variant="contained" color="primary" size="small">
-            J'aime !
-          </Button>
-          <p>(0)</p>
+          <Likes post={post} />
         </div>
 
         <div>

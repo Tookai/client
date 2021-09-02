@@ -30,7 +30,7 @@ const Navbar = () => {
   //
   const logo = useRef();
   useEffect(() => {
-    gsap.from(logo.current, { rotation: -360, duration: 4, ease: "none", repeat: -1 });
+    gsap.from(logo.current, { rotation: -360, duration: 10, ease: "none", repeat: -1 });
   }, []);
   //
   //
