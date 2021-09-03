@@ -5,6 +5,7 @@ import Modal from "@material-ui/core/Modal";
 import { useState, useRef, useEffect } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import * as api from "../../apiCall";
+import { categories } from "../../resources.js";
 import gsap from "gsap";
 
 const Addpost = () => {
@@ -21,11 +22,12 @@ const Addpost = () => {
     setOpen(false);
   };
   //
-  // Get form data
+  // Get post data
   const [topic, setTopic] = useState("");
   const [desc, setDesc] = useState("");
   const [image, setImage] = useState("");
-  const userId = 2;
+  const loggedUser = JSON.parse(localStorage.getItem("user"));
+  const userId = loggedUser.userId;
   const post = { topic, desc, image, userId };
   //
   // Update feed on submit
@@ -75,16 +77,9 @@ const Addpost = () => {
                 <p>Topic : </p>
                 <select onChange={(e) => setTopic(e.target.value)}>
                   <option value="">*Choisissez votre topic*</option>
-                  <option value="Lifestyle">Lifestyle</option>
-                  <option value="Funny">Funny</option>
-                  <option value="Meme">Meme</option>
-                  <option value="Animals">Animals</option>
-                  <option value="Car">Car</option>
-                  <option value="Music">Music</option>
-                  <option value="Movie">Movie</option>
-                  <option value="Sports">Sports</option>
-                  <option value="Video_Games">Video Games</option>
-                  <option value="Cant_Class">Can't Class</option>
+                  {categories.map((c) => (
+                    <option value={c.topic}>{c.topic}</option>
+                  ))}
                 </select>
               </div>
 

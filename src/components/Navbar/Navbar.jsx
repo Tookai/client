@@ -1,7 +1,7 @@
 import "./Navbar.scss";
 import icon from "../../images/icon.svg";
 import Avatar from "@material-ui/core/Avatar";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Addpost from "../Addpost/Addpost";
 import Topicmodal from "../Topicmodal/Topicmodal";
 import Logout from "../Logout/Logout";
@@ -16,6 +16,7 @@ import { useQuery, useQueryClient } from "react-query";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const history = useHistory();
 
   //
   // Get current user Data
@@ -40,14 +41,17 @@ const Navbar = () => {
     queryClient.invalidateQueries("feed");
   };
 
+  const reload = () => {
+    history.push("/");
+    queryClient.invalidateQueries("feed");
+  };
+
   return (
     <div className="Navbar">
-      <Link to="/">
-        <div className="logo">
-          <img src={icon} alt="Logo : Globe" className="img" ref={logo} />
-          <h1 className="h1 text">Groupomania</h1>
-        </div>
-      </Link>
+      <div className="logo" onClick={reload}>
+        <img src={icon} alt="Logo : Globe" className="img" ref={logo} />
+        <h1 className="h1 text">Groupomania</h1>
+      </div>
 
       <div className="modals" onClick={() => setOpen(!open)}>
         <div ref={roundedBtn}>

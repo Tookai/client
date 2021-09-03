@@ -2,17 +2,13 @@ import "./Topicmodal.scss";
 import { IconButton } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { useState, useRef, useEffect } from "react";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
-import ChildCareIcon from "@material-ui/icons/ChildCare";
-import PetsIcon from "@material-ui/icons/Pets";
-import DriveEtaIcon from "@material-ui/icons/DriveEta";
-import MusicNoteIcon from "@material-ui/icons/MusicNote";
-import MovieIcon from "@material-ui/icons/Movie";
-import CreateNewFolderIcon from "@material-ui/icons/CreateNewFolder";
-import SportsSoccerIcon from "@material-ui/icons/SportsSoccer";
-import SportsEsportsIcon from "@material-ui/icons/SportsEsports";
+import { Link } from "react-router-dom";
+
+import { categories } from "../../resources.js";
+
 import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
 import gsap from "gsap";
+import { useQueryClient } from "react-query";
 
 const Topicmodal = () => {
   const [open, setOpen] = useState(false);
@@ -20,6 +16,12 @@ const Topicmodal = () => {
     setOpen(true);
   };
   const handleClose = () => {
+    setOpen(false);
+  };
+
+  const queryClient = useQueryClient();
+  const refreshFeed = () => {
+    queryClient.invalidateQueries("feed");
     setOpen(false);
   };
 
@@ -48,54 +50,14 @@ const Topicmodal = () => {
       >
         <div className="topic__modal">
           <div className="container">
-            <div className="topic">
-              <AccessibilityIcon fontSize="large" />
-              <h2 className="h2">Lifestyle</h2>
-            </div>
-            <div className="topic">
-              <ChildCareIcon fontSize="large" />
-              <h2 className="h2">Funny</h2>
-            </div>
-
-            <div className="topic">
-              <PetsIcon fontSize="large" />
-              <h2 className="h2">Meme</h2>
-            </div>
-
-            <div className="topic">
-              <PetsIcon fontSize="large" />
-              <h2 className="h2">Animals</h2>
-            </div>
-
-            <div className="topic">
-              <DriveEtaIcon fontSize="large" />
-              <h2 className="h2">Car</h2>
-            </div>
-
-            <div className="topic">
-              <MusicNoteIcon fontSize="large" />
-              <h2 className="h2">Music</h2>
-            </div>
-
-            <div className="topic">
-              <MovieIcon fontSize="large" />
-              <h2 className="h2">Movie</h2>
-            </div>
-
-            <div className="topic">
-              <SportsSoccerIcon fontSize="large" />
-              <h2 className="h2">Sports</h2>
-            </div>
-
-            <div className="topic">
-              <SportsEsportsIcon fontSize="large" />
-              <h2 className="h2">Video Games</h2>
-            </div>
-
-            <div className="topic">
-              <CreateNewFolderIcon fontSize="large" />
-              <h2 className="h2">Can't Class</h2>
-            </div>
+            {categories.map((c) => (
+              <Link to={`/topic/${c.topic}`} onClick={refreshFeed}>
+                <div className="topic">
+                  {c.icon}
+                  <h2 className="h2">{c.topic}</h2>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </Modal>

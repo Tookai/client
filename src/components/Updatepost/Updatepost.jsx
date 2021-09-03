@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import * as api from "../../apiCall";
+import { categories } from "../../resources.js";
 import "./Updatepost.scss";
 
 const Updatepost = ({ post }) => {
@@ -69,16 +70,9 @@ const Updatepost = ({ post }) => {
               <option selected value={post.topic}>
                 {post.topic}
               </option>
-              <option value="Lifestyle">Lifestyle</option>
-              <option value="Funny">Funny</option>
-              <option value="Meme">Meme</option>
-              <option value="Animals">Animals</option>
-              <option value="Car">Car</option>
-              <option value="Music">Music</option>
-              <option value="Movie">Movie</option>
-              <option value="Sports">Sports</option>
-              <option value="Video_Games">Video Games</option>
-              <option value="Cant_Class">Can't Class</option>
+              {categories.map((c) => (
+                <option value={c.topic}>{c.topic}</option>
+              ))}
             </select>
 
             <label htmlFor="desc">Description :</label>
