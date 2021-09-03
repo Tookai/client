@@ -53,18 +53,13 @@ const Updateinfos = ({ user }) => {
     },
   });
   //
-  const {
-    mutate: mutation,
-    error,
-    status,
-  } = useMutation(api.updateUserCredentials, {
+  const { mutate: mutation } = useMutation(api.updateUserCredentials, {
     onSuccess: () => {
       queryClient.invalidateQueries("profile-user");
       queryClient.invalidateQueries("logged-user");
       setOpen(false);
     },
     onError: (error) => {
-      console.log(error.status);
       alert("Votre mot de passe actuel est erroné.");
     },
   });
@@ -85,8 +80,8 @@ const Updateinfos = ({ user }) => {
 
   return (
     <div className="Updateinfos">
-      <Button variant="contained" color="primary" onClick={handleOpen} style={{margin: "0.3rem"}}>
-        Mettre à jour <br/> vos infos
+      <Button variant="contained" color="primary" onClick={handleOpen} style={{ margin: "0.3rem" }}>
+        Mettre à jour <br /> vos infos
       </Button>
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -137,10 +132,10 @@ const Updateinfos = ({ user }) => {
           </form>
 
           <div className="btn__container">
-            <Button variant="contained" color="primary" onClick={handleInfos} style={{margin: "0.3rem"}}>
+            <Button variant="contained" color="primary" onClick={handleInfos} style={{ margin: "0.3rem" }}>
               Mettre à jour
             </Button>
-            <Button variant="contained" color="secondary" onClick={handleClose} style={{margin: "0.3rem"}}>
+            <Button variant="contained" color="secondary" onClick={handleClose} style={{ margin: "0.3rem" }}>
               Annuler
             </Button>
           </div>
@@ -170,10 +165,10 @@ const Updateinfos = ({ user }) => {
               />
 
               <div className="btn__container">
-                <Button variant="contained" color="primary" type="submit" onClick={handleCredentials} style={{margin: "0.3rem"}}>
+                <Button variant="contained" color="primary" type="submit" onClick={handleCredentials} style={{ margin: "0.3rem" }}>
                   Mettre à jour
                 </Button>
-                <Button variant="contained" color="secondary" onClick={handleClose} style={{margin: "0.3rem"}}>
+                <Button variant="contained" color="secondary" onClick={handleClose} style={{ margin: "0.3rem" }}>
                   Annuler
                 </Button>
               </div>

@@ -43,7 +43,7 @@ const Post = ({ post }) => {
 
       <div className="content">
         <p className="text">{post.desc}</p>
-        {post.image && <img src={`${post.image}`} alt="random" className="img" loading="lazy" />}
+        {post.image && <img src={post.image} alt="" className="img" loading="lazy" />}
       </div>
 
       <hr />

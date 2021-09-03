@@ -3,7 +3,7 @@ import stackedLogo from "../../images/stackedLogo.svg";
 import { Button } from "@material-ui/core";
 import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import * as api from "../../apiCall";
 
 const RegisterPage = () => {
@@ -15,10 +15,8 @@ const RegisterPage = () => {
   //
   const history = useHistory();
   //
-  const queryClient = useQueryClient();
   const { mutate, isLoading } = useMutation(api.createUser, {
     onSuccess: () => {
-      // queryClient.invalidateQueries("user");
       history.push("/login");
     },
   });

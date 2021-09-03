@@ -72,7 +72,7 @@ const Navbar = () => {
         <div className="greeting">
           <p className="hello">Bonjour, {data[0].firstName}</p>
           <Link to={`/user/${loggedUser.userId}`} onClick={handleClick}>
-            <Avatar alt={`${data[0].firstName} Avatar`} src={`${data[0].avatar}`} />
+            <Avatar alt={`${data[0].firstName} Avatar`} src={data[0].avatar} />
           </Link>
         </div>
       )}

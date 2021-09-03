@@ -1,7 +1,6 @@
 import "./Userinfos.scss";
 import * as api from "../../apiCall";
 import { useQuery } from "react-query";
-import { Button } from "@material-ui/core";
 import Updatepic from "../Updatepic/Updatepic";
 import Updateinfos from "../Updateinfos/Updateinfos";
 import Deluser from "../Deluser/Deluser";
@@ -12,8 +11,6 @@ const Userinfos = () => {
   const id = window.location.pathname.split("/user/")[1];
   const { data, isLoading } = useQuery(["profile-user", { id }], () => api.selectOneUser(id));
 
-  console.log(loggedUser);
-
   if (isLoading) {
     return <div>...</div>;
   }
@@ -23,22 +20,22 @@ const Userinfos = () => {
     <div className="Userinfos">
       {u.cover ? (
         <div className="cover">
-          <img src={`${u.cover}`} alt="" />
+          <img src={u.cover} alt="" />
         </div>
       ) : (
         <div className="cover">
-          <img src="https://images.pexels.com/photos/624015/pexels-photo-624015.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+          <img src="https://picsum.photos/750/320" alt="Filler for cover" />
         </div>
       )}
 
       <div className="infos">
         {u.avatar ? (
           <div className="profilePic">
-            <img src={`${u.avatar}`} alt="" />
+            <img src={u.avatar} alt="" />
           </div>
         ) : (
           <div className="profilePic">
-            <img src="https://images.pexels.com/photos/19677/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="" />
+            <img src="https://picsum.photos/150/150" alt="Filler for avatar" />
           </div>
         )}
 

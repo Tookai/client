@@ -16,19 +16,15 @@ const LoginPage = () => {
     onSuccess: (data) => {
       const user = { userId: data[0].id, isAdmin: data[0].isAdmin };
       localStorage.setItem("user", JSON.stringify(user));
+      history.push("/");
     },
     onError: () => {
       alert("L'identifiant ou le mot de passe est incorrect.");
     },
   });
-  //
-  const loggedUser = JSON.parse(localStorage.getItem("user"));
-  loggedUser && history.push("/");
-  //
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit");
     if (password !== "" && email !== "") {
       const user = { email, password };
       mutate(user);

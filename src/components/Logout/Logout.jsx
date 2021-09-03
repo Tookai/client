@@ -27,7 +27,7 @@ const Logout = () => {
   //
   // Get current user Data
   const loggedUser = JSON.parse(localStorage.getItem("user"));
-  const { data, isLoading } = useQuery("logged-user", () => api.selectOneUser(loggedUser.userId));
+  const { data } = useQuery("logged-user", () => api.selectOneUser(loggedUser.userId));
 
   //
   // Gsap Animation
@@ -49,7 +49,7 @@ const Logout = () => {
 
       <Modal open={open} style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
         <div className="logout__modal">
-          <Avatar alt={`${data[0].firstName}`} src={`${data[0].avatar}`} style={{ height: "250px", width: "250px" }} />
+          <Avatar alt={data[0].firstName} src={data[0].avatar} style={{ height: "250px", width: "250px" }} />
           <p className="username">
             {data[0].firstName} {data[0].lastName}
           </p>

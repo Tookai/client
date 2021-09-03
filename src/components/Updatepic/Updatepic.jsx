@@ -38,8 +38,6 @@ const Updatepic = ({ user }) => {
       mutate(body);
   };
 
-  console.log(user);
-
   return (
     <div className="Updatepic">
       <Button variant="contained" color="primary" onClick={handleOpen} style={{margin: "0.3rem"}}>

@@ -1,7 +1,7 @@
 import { Button } from "@material-ui/core";
 import Modal from "@material-ui/core/Modal";
 import { useState } from "react";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import { useHistory } from "react-router-dom";
 import * as api from "../../apiCall";
 import "./Deluser.scss";
