@@ -40,6 +40,17 @@ export const deleteUser = (id) => Axios.delete(`/user/delete/${id}`).then((res) 
 
 export const whoLiked = (postId) => Axios.get(`/like/${postId}/who`).then((res) => res.data);
 
-export const addLike = ({ postId, userId }) => Axios.post(`/like/${postId}/like/${userId}`).then((res) => res.dat);
+export const addLike = ({ postId, userId }) => Axios.post(`/like/${postId}/like/${userId}`).then((res) => res.data);
 
-export const removeLike = ({ postId, userId }) => Axios.delete(`/like/${postId}/dislike/${userId}`).then((res) => res.dat);
+export const removeLike = ({ postId, userId }) => Axios.delete(`/like/${postId}/dislike/${userId}`).then((res) => res.data);
+
+// -----------
+// --------------
+// -----------
+
+export const selectCommentsByPost = (postId) => Axios.get(`/comment/${postId}/comments`).then((res) => res.data);
+
+export const createComment = ({ postId, userId, content }) =>
+  Axios.post(`/comment/${postId}/post/${userId}`, { content }).then((res) => res.data);
+
+export const deleteComment = ({ postId, commentId }) => Axios.delete(`/comment/${postId}/delete/${commentId}`).then((res) => res.data);

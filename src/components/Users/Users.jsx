@@ -27,7 +27,7 @@ const Users = () => {
 
   //
   // Fetch users
-  const { data, isLoading, isError } = useQuery("user", api.selectAllUsers);
+  const { data } = useQuery("user", api.selectAllUsers);
 
   //
   // Refetch data on user change

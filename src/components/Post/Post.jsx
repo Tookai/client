@@ -1,4 +1,4 @@
-import { Button, IconButton } from "@material-ui/core";
+import { Button } from "@material-ui/core";
 import TimeAgo from "timeago-react";
 import * as timeago from "timeago.js";
 import fr from "timeago.js/lib/lang/fr";
@@ -59,7 +59,7 @@ const Post = ({ post }) => {
               Commenter
             </Button>
           </Link>
-          <p>(0)</p>
+          <p>({post.comments})</p>
         </div>
       </div>
     </div>
