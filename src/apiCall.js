@@ -1,9 +1,10 @@
 import axios from "axios";
 
+const loggedUser = JSON.parse(localStorage.getItem("user"));
+
 const Axios = axios.create({
   baseURL: "http://localhost:5500/api",
-  /*     timeout: 1000,
-    headers: {'X-Custom-Header': 'foobar'} */
+  headers: { Authorization: `Bearer ${loggedUser?.token}` },
 });
 
 export const createPost = (post) => Axios.post("/post/post", post).then((res) => res.data);
