@@ -52,7 +52,7 @@ const Comment = ({ comment }) => {
           </p>
         </div>
 
-        {loggedUser.userId === comment.userId && (
+        {(loggedUser.userId === comment.userId || loggedUser.isAdmin) && (
           <IconButton color="secondary" variant="contained">
             <ClearIcon fontSize="small" onClick={handleDelete} />
           </IconButton>

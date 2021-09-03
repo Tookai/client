@@ -36,7 +36,7 @@ const Post = ({ post }) => {
             <TimeAgo datetime={`${post.createdAt}`} locale="fr" />
           </p>
         </div>
-        <div>{post.userId === loggedUser.userId && <Updatepost post={post} />}</div>
+        <div>{(post.userId === loggedUser.userId || loggedUser.isAdmin) && <Updatepost post={post} />}</div>
       </div>
 
       <hr />
