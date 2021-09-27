@@ -19,6 +19,12 @@ const Navbar = () => {
   const history = useHistory();
 
   //
+  // clear logged user on close
+  window.onbeforeunload = () => {
+    localStorage.clear();
+  };
+
+  //
   // Get current user Data
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   const { data, isLoading } = useQuery("logged-user", () => api.selectOneUser(loggedUser.userId));

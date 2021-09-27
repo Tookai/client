@@ -16,6 +16,7 @@ const LoginPage = () => {
     onSuccess: (data) => {
       const user = { userId: data.user[0].id, isAdmin: data.user[0].isAdmin, token: data.token };
       localStorage.setItem("user", JSON.stringify(user));
+      // passer à cookie plutôt
       history.push("/");
     },
     onError: () => {

@@ -6,11 +6,11 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CommentPage from "./pages/CommentPage/CommentPage";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
 
 function App() {
   const queryClient = new QueryClient();
   const loggedUser = JSON.parse(localStorage.getItem("user"));
+
   return (
     <QueryClientProvider client={queryClient}>
       <Router>
@@ -30,7 +30,6 @@ function App() {
           <Route path="/">{!loggedUser ? <Redirect to="/login" /> : <HomePage />}</Route>
         </Switch>
       </Router>
-      <ReactQueryDevtools />
     </QueryClientProvider>
   );
 }
