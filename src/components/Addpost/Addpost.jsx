@@ -8,6 +8,8 @@ import * as api from "../../apiCall";
 import { categories } from "../../resources.js";
 import gsap from "gsap";
 
+import axios from "axios";
+
 const Addpost = () => {
   //
   // For Modal
@@ -28,7 +30,7 @@ const Addpost = () => {
   const [image, setImage] = useState("");
   const loggedUser = JSON.parse(localStorage.getItem("user"));
   const userId = loggedUser.userId;
-  const post = { topic, desc, image, userId };
+  // const post = { topic, desc, image, userId };
   //
   // Update feed on submit
   const queryClient = useQueryClient();
@@ -44,7 +46,21 @@ const Addpost = () => {
   // Add a post
   const handleSubmit = () => {
     if ((desc !== "" || image !== "") && topic !== "") {
-      mutate(post);
+      if (typeof image === "string") {
+        const post = { topic, desc, image, userId };
+        mutate(post);
+      }
+      if (typeof image === "object") {
+        const formData = new FormData();
+        formData.append("topic", topic);
+        formData.append("desc", desc);
+        formData.append("image", image);
+        formData.append("userId", userId);
+        console.log(formData.get("file"), "formData");
+        const post = formData;
+        mutate(post);
+        axios.post("https://httpbin.org/anything", post).then((res) => console.log(res));
+      }
     } else {
       alert("Certains éléments devraient être remplis.");
     }
@@ -56,6 +72,9 @@ const Addpost = () => {
     gsap.fromTo(roundedBtn.current, { opacity: 0, scale: 0 }, { opacity: 1, scale: 1, duration: 0.6 });
   }, []);
 
+  console.log(image, "image");
+  console.log(image.name, "image");
+  console.log(typeof image === "object", "typeof");
   return (
     <>
       <div className="Addpost" ref={roundedBtn}>
@@ -92,6 +111,12 @@ const Addpost = () => {
                 <p>L'URL de votre image</p>
                 <input type="text" onChange={(e) => setImage(e.target.value)} />
               </div>
+              <label htmlFor="contained-button-file">
+                <input onChange={(e) => setImage(e.target.files[0])} accept="image/*" id="contained-button-file" multiple type="file" />
+                <Button variant="contained" component="span">
+                  Upload
+                </Button>
+              </label>
               <div className="buttons">
                 <Button onClick={handleSubmit} variant="contained" color="primary">
                   Poster
