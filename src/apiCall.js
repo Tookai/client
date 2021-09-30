@@ -5,10 +5,6 @@ import Cookies from "js-cookie";
 // get user connected infos
 const userOn = JSON.parse(Cookies.get("user"));
 
-//
-// get user connected infos
-const userOn = JSON.parse(Cookies.get("user"));
-
 const Axios = axios.create({
   baseURL: "http://localhost:5500/api",
   headers: { Authorization: `Bearer ${userOn?.token}` },
