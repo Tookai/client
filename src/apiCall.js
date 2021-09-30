@@ -1,7 +1,9 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const loggedUser = JSON.parse(localStorage.getItem("user"));
+//
+// get user connected infos
+const userOn = JSON.parse(Cookies.get("user"));
 
 //
 // get user connected infos
