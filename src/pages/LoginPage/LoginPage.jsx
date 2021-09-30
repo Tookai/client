@@ -5,6 +5,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import * as api from "../../apiCall";
+import Cookies from "js-cookie";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -16,6 +17,7 @@ const LoginPage = () => {
     onSuccess: (data) => {
       const user = { userId: data.user[0].id, isAdmin: data.user[0].isAdmin, token: data.token };
       localStorage.setItem("user", JSON.stringify(user));
+      Cookies.set("user", JSON.stringify(user), { expires: 0.125 });
       // passer à cookie plutôt
       history.push("/");
     },
