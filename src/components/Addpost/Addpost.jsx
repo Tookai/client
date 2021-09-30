@@ -59,7 +59,7 @@ const Addpost = () => {
         console.log(formData.get("file"), "formData");
         const post = formData;
         mutate(post);
-        axios.post("https://httpbin.org/anything", post).then((res) => console.log(res));
+        // axios.post("https://httpbin.org/anything", post).then((res) => console.log(res));
       }
     } else {
       alert("Certains éléments devraient être remplis.");
@@ -112,11 +112,26 @@ const Addpost = () => {
                 <input type="text" onChange={(e) => setImage(e.target.value)} />
               </div>
               <label htmlFor="contained-button-file">
-                <input onChange={(e) => setImage(e.target.files[0])} accept="image/*" id="contained-button-file" multiple type="file" />
+                <input
+                  className="upload__input"
+                  onChange={(e) => setImage(e.target.files[0])}
+                  accept="image/*"
+                  id="contained-button-file"
+                  multiple
+                  type="file"
+                />
                 <Button variant="contained" component="span">
                   Upload
                 </Button>
               </label>
+              {typeof image === "object" && (
+                <div style={{ display: "flex", justifyContent: "space-evenly", width: "100%" }}>
+                  <p>{image.name}</p>
+                  <div style={{ cursor: "pointer" }} onClick={(e) => setImage("")}>
+                    X
+                  </div>
+                </div>
+              )}
               <div className="buttons">
                 <Button onClick={handleSubmit} variant="contained" color="primary">
                   Poster

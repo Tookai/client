@@ -27,7 +27,9 @@ export const selectAllUsers = () => Axios.get("/user/all").then((res) => res.dat
 
 export const selectOneUser = (id) => Axios.get(`/user/${id}`).then((res) => res.data);
 
-export const updateUserPic = ({ id, pictures }) => Axios.put(`/user/update/pictures/${id}`, pictures).then((res) => res.data);
+export const updateUserAvatar = ({ id, avatar }) => Axios.put(`/user/update/avatar/${id}`, avatar).then((res) => res.data);
+
+export const updateUserCover = ({ id, cover }) => Axios.put(`/user/update/cover/${id}`, cover).then((res) => res.data);
 
 export const updateUserInfos = ({ id, user }) => Axios.put(`/user/update/infos/${id}`, user).then((res) => res.data);
 

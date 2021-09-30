@@ -10,7 +10,7 @@
   align-items: center;
   width: 105px;
   transform: scale(0);
- 
+
   div {
     background-color: $light;
     border: 1px solid $darkest;
@@ -43,6 +43,11 @@
     width: 40vw;
     @media (max-width: 799px) {
       width: 80vw;
+    }
+
+    label {
+      display: flex;
+      justify-content: center;
     }
   }
 

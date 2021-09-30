@@ -45,9 +45,20 @@ const Updatepost = ({ post }) => {
 
   //
   const handleUpdate = () => {
-    const content = { desc, image, topic };
-    const body = { id, content };
-    mutate(body);
+    if (typeof image !== "object") {
+      console.log("not file");
+      const content = { desc, image, topic };
+      const body = { id, content };
+      mutate(body);
+    } else {
+      console.log("file");
+      const content = new FormData();
+      content.append("topic", topic);
+      content.append("desc", desc);
+      content.append("image", image);
+      const body = { id, content };
+      mutate(body);
+    }
   };
 
   const handleDelete = () => {
@@ -85,16 +96,37 @@ const Updatepost = ({ post }) => {
               style={{ backgroundColor: "white", marginBottom: "1rem" }}
               onChange={(e) => setDesc(e.target.value)}
             />
-            {image && <img src={image} alt="" className="image__preview" />}
+            {(typeof image === "string" && image !== "") && <img src={image} alt="" className="image__preview" />}
+            {typeof image === "object" && <img src={URL.createObjectURL(image)} alt="" className="image__preview" />}
 
             <label htmlFor="avatar">Image :</label>
             <input
               type="text"
               id="avatar"
               name="avatar"
-              placeholder="Mettez l'URL de votre nouvelle photo de profil ici..."
+              placeholder="Mettez l'URL de votre nouvelle photo ici..."
               onChange={(e) => setImage(e.target.value)}
             />
+
+            <label htmlFor="contained-button-file">
+              <input
+                className="upload__input"
+                onChange={(e) => setImage(e.target.files[0])}
+                accept="image/*"
+                id="contained-button-file"
+                multiple
+                type="file"
+              />
+              <Button variant="contained" component="span">
+                Upload
+              </Button>
+              {typeof image === "object" && (
+                <div style={{ display: "flex", justifyContent: "space-evenly", width: "100%" }}>
+                  <p>{image.name}</p>
+                  <div style={{ cursor: "pointer" }} onClick={(e) => setImage("")}>X</div>
+                </div>
+              )}
+            </label>
           </form>
 
           <div className="btn__container">
