@@ -6,10 +6,13 @@ import LoginPage from "./pages/LoginPage/LoginPage";
 import UserPage from "./pages/UserPage/UserPage";
 import CommentPage from "./pages/CommentPage/CommentPage";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Cookies from "js-cookie";
 
 function App() {
   const queryClient = new QueryClient();
   const loggedUser = JSON.parse(localStorage.getItem("user"));
+
+  const auth = Cookies.get("user") ? true : false;
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -23,11 +26,11 @@ function App() {
             <LoginPage />
           </Route>
 
-          <Route path="/user/:id">{!loggedUser ? <Redirect to="/login" /> : <UserPage />}</Route>
+          <Route path="/user/:id">{!auth ? <Redirect to="/login" /> : <UserPage />}</Route>
 
-          <Route path="/id/:id">{!loggedUser ? <Redirect to="/login" /> : <CommentPage />}</Route>
+          <Route path="/id/:id">{!auth ? <Redirect to="/login" /> : <CommentPage />}</Route>
 
-          <Route path="/">{!loggedUser ? <Redirect to="/login" /> : <HomePage />}</Route>
+          <Route path="/">{!auth ? <Redirect to="/login" /> : <HomePage />}</Route>
         </Switch>
       </Router>
     </QueryClientProvider>

@@ -13,6 +13,7 @@ import { useState, useRef, useEffect } from "react";
 import gsap from "gsap";
 import * as api from "../../apiCall";
 import { useQuery, useQueryClient } from "react-query";
+import Cookies from "js-cookie";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -22,6 +23,7 @@ const Navbar = () => {
   // clear logged user on close
   window.onbeforeunload = () => {
     localStorage.clear();
+    Cookies.remove("user");
   };
 
   //

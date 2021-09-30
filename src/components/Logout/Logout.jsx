@@ -8,6 +8,7 @@ import { useHistory } from "react-router-dom";
 import gsap from "gsap";
 import { useQuery } from "react-query";
 import * as api from "../../apiCall";
+import Cookies from "js-cookie";
 
 const Logout = () => {
   const history = useHistory();
@@ -21,6 +22,7 @@ const Logout = () => {
   };
   const handleLogout = () => {
     localStorage.clear();
+    Cookies.remove("token");
     history.push("/login");
   };
 

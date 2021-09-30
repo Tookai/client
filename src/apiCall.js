@@ -1,13 +1,13 @@
 import axios from "axios";
 import Cookies from "js-cookie";
 
-//
-// get user connected infos
-const userOn = JSON.parse(Cookies.get("user"));
+const loggedUser = JSON.parse(localStorage.getItem("user"));
+
+const token = Cookies.get("user") ? JSON.parse(Cookies.get("user")).token : "";
 
 const Axios = axios.create({
   baseURL: "http://localhost:5500/api",
-  headers: { Authorization: `Bearer ${userOn?.token}` },
+  headers: { Authorization: `Bearer ${token}` },
 });
 
 export const createPost = (post) => Axios.post("/post/post", post).then((res) => res.data);
